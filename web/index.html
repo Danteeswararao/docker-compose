@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Demo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            width: 60%;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the DevOps Demo Application</h1>
+        <p>This page is served by <b>Nginx</b> via Docker Compose.</p>
+
+        <button onclick="callAPI()">Call API</button>
+
+        <div id="response"></div>
+    </div>
+
+    <script>
+        function callAPI() {
+            fetch("/api")
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("response").innerHTML = data.message;
+                })
+                .catch(err => {
+                    document.getElementById("response").innerHTML = "Error calling API!";
+                });
+        }
+    </script>
+
+</body>
+</html>
