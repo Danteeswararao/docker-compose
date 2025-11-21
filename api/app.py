@@ -94,3 +94,7 @@ def delete_user(user_id):
         conn.commit()
     conn.close()
     return jsonify({"message": f"User {user_id} deleted"})
+
+if __name__ == "__main__":
+    # Must bind to 0.0.0.0 in Docker
+    app.run(host="0.0.0.0", port=5000)
