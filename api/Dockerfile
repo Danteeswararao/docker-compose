@@ -7,5 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 5000
 
-# CMD must run Flask in foreground
-CMD ["python", "app.py"]
+COPY wait-for-db.sh .
+RUN chmod +x wait-for-db.sh
+CMD ["./wait-for-db.sh", "python", "app.py"]
