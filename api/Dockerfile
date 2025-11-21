@@ -9,4 +9,4 @@ EXPOSE 5000
 
 COPY wait-for-db.sh .
 RUN chmod +x wait-for-db.sh
-CMD ["./wait-for-db.sh", "python", "app.py"]
+CMD ["python", "app.py"]
