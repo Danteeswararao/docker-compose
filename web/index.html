@@ -47,7 +47,7 @@
 
     <script>
         function callAPI() {
-            fetch("/api")
+            fetch("/api/")
                 .then(res => res.json())
                 .then(data => {
                     document.getElementById("response").innerHTML = data.message;
